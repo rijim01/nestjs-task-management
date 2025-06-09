@@ -4,15 +4,16 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable prettier/prettier */
 import { IsEnum, IsOptional, IsString } from "class-validator";
-import { TaskStatus } from "../task.model";
+import { TaskStatus } from "../task-status.enum";
 import { Transform } from "class-transformer";
 
 export class GetTasksFilterDTO {
   @IsOptional()
-  @IsEnum(TaskStatus,{
-    message: 'status must be one of the following values: OPEN, IN_PROGRESS, DONE',
+  @IsEnum(TaskStatus, {
+    message:
+      "status must be one of the following values: OPEN, IN_PROGRESS, DONE",
   })
-  @Transform(({value}) => value?.trim())
+  @Transform(({ value }) => value?.trim())
   status?: TaskStatus;
 
   @IsOptional()
