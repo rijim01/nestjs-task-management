@@ -13,7 +13,7 @@ export class GetTasksFilterDTO {
     message:
       "status must be one of the following values: OPEN, IN_PROGRESS, DONE",
   })
-  @Transform(({ value }) => value?.trim())
+  @Transform(({ value }) => value?.trim().toUpperCase())
   status?: TaskStatus;
 
   @IsOptional()
